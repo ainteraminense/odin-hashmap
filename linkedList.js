@@ -53,4 +53,17 @@ export class LinkedList {
             return -1;
         }
     };
+
+    remove(indexToRemove) {
+            let temp = this.head;
+            let count = 0;
+            while(temp.next != null && count) {
+                if (count === indexToRemove - 1) {
+                    temp = temp.next.next;
+                    continue;
+                }
+                temp = temp.next;
+                count++;
+            }
+    }
 }
