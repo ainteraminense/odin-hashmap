@@ -54,5 +54,23 @@ class HashMap {
                 return this.buckets[index].value;
             }
         }
+    };
+
+    has(key) {
+        const index = this.hash(key);
+        // check if index is out of bounds
+        if (index < 0 || index >= this.buckets.length) {
+        throw new Error("Trying to access index out of bounds");
+        }
+        if(this.buckets[index] === null) {
+            return false;
+        } else {
+            const linkedListIndex = this.buckets[index].findIndex(key);
+            if (linkedListIndex !== -1) {
+                return false;
+            } else {
+                return true;
+            }
+        }
     }
 }
