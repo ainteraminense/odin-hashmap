@@ -1,7 +1,10 @@
+import { LinkedList } from "./linkedList";
+
 class HashMap {
     constructor(loadFactor = 0.75, capacity = 16) {
         this.loadFactor = loadFactor;
         this.capacity = capacity;
+        this.buckets = [];
     };
 
     hash(key) {
@@ -13,6 +16,27 @@ class HashMap {
     }
 
     return hashCode;
-    } 
+    };
 
+    set(key, value) {
+        const index = this.hash(key);
+        // check if index is out of bounds
+        if (index < 0 || index >= this.buckets.length) {
+        throw new Error("Trying to access index out of bounds");
+        }
+        // implement grow buckets if it exceeds load capacity
+        if(this.buckets[index] === null) {
+            this.buckets[index] = new LinkedList();
+            this.buckets[index].append({key, value});
+        } else {
+            const linkedListIndex = this.buckets[index].findIndex(key);
+            if (linkedListIndex !== -1) {
+                this.buckets[index].append({key, value});
+            } else {
+                this.buckets[index].value = {key, value};
+            }
+        }
+    };
+
+    
 }
