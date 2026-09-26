@@ -101,5 +101,9 @@ class HashMap {
             total += bucket.size();
         });
         return total;
+    };
+
+    clear() {
+        this.buckets = [];
     }
 }
