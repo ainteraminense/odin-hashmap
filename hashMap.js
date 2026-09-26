@@ -94,4 +94,12 @@ class HashMap {
             }
         }
     };
+
+    length() {
+        let total = 0;
+        this.buckets.forEach((bucket) => {
+            total += bucket.size();
+        });
+        return total;
+    }
 }

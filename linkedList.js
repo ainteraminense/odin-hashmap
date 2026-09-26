@@ -65,5 +65,19 @@ export class LinkedList {
                 temp = temp.next;
                 count++;
             }
-    }
+    };
+
+    size() {
+        if (this.head === undefined) {
+            return 0;
+        } else {
+            let temp = this.head;
+            let count = 0;
+            while (temp.next != null) {
+                temp = temp.next;
+                count++;
+            }
+            return count;
+        }
+    };
 }
