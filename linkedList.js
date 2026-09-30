@@ -89,5 +89,15 @@ export class LinkedList {
             temp = temp.next;
         }
         return result;
+    };
+
+    values() {
+        let temp = this.head;
+        const result = [];
+        while (temp.next != null) {
+            result.push(temp.value);
+            temp = temp.next;
+        }
+        return result;
     }
 }
