@@ -99,5 +99,15 @@ export class LinkedList {
             temp = temp.next;
         }
         return result;
-    }
+    };
+
+    entries() {
+        let temp = this.head;
+        const result = [];
+        while (temp.next != null) {
+            result.push([temp.key, temp.value]);
+            temp = temp.next;
+        }
+        return result;
+    };
 }
