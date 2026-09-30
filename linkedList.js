@@ -80,4 +80,14 @@ export class LinkedList {
             return count;
         }
     };
+
+    keys() {
+        let temp = this.head;
+        const result = [];
+        while (temp.next != null) {
+            result.push(temp.key);
+            temp = temp.next;
+        }
+        return result;
+    }
 }

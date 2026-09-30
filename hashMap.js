@@ -105,5 +105,13 @@ class HashMap {
 
     clear() {
         this.buckets = [];
+    };
+
+    keys() {
+        const result = []
+        this.buckets.forEach((bucket) => {
+            result = result.concat(bucket.keys());
+        });
+        return result;
     }
 }
