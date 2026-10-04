@@ -34,7 +34,7 @@ export class HashMap {
             if (linkedListIndex === -1) {
                 this.buckets[index].append({[key]:value});
             } else {
-                this.buckets[index].update({[key]:value})
+                this.buckets[index].update({[key]:value}, linkedListIndex)
             }
         }
     };

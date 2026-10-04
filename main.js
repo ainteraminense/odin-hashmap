@@ -16,9 +16,9 @@ test.set('kite', 'pink'); // 15
 test.set('lion', 'golden'); // 12 [1]
 console.log(test.length()); 
 
-// test.set('dog', 'black');
-// test.set('hat', 'white');
-// test.set('lion', 'brown');
-// console.log(test.length());
+test.set('dog', 'black');
+test.set('hat', 'white');
+test.set('lion', 'brown');
+console.log(test.length());
 
 

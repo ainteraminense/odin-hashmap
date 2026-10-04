@@ -38,16 +38,23 @@ export class LinkedList {
     };
 
     update(hashNode, index) {
+        const node = new Node(hashNode, null)
         if (this.head === undefined) {
-            this.head = hashNode;
+            this.head = node;
         } else {
             let count = 0;
-            let temp = this.head;
-            while (temp.next != null) {
-                if (count === index) {
-                    temp = hashNode;
+                if (index === 0) {
+                   node.next = this.head.next;
+                   this.head = node; 
                 }
+            let temp = this.head;
+            while (temp.next) {
+                if (count === index - 1) {
+                    node.next = temp.next.next;
+                    temp.next = node;
+                } else {
                 temp = temp.next;
+                }
                 count++;
             }
         }
@@ -58,13 +65,16 @@ export class LinkedList {
             return -1;
         } else {
             let count = 0;
+            if (this.head.hashNode[key]) {
+                return count;
+            }
             let temp = this.head;
-            while (temp.next != null) {
-                if (temp.hashNode.keys()[0] === key) {
-                    return count;
-                }
+            while (temp.next) {
                 temp = temp.next;
                 count++;
+                if (temp.hashNode[key]) {
+                    return count;
+                }
             }
             return -1;
         }
