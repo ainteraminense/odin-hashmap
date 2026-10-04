@@ -1,6 +1,6 @@
 class Node {
-    constructor(value, nextNode) {
-    this.value = value;
+    constructor(hashNode, nextNode) {
+    this.hashNode = hashNode;
     this.nextNode = nextNode;
     };
 }
@@ -24,16 +24,32 @@ export class LinkedList {
         }
     };
 
-    append(value) {
-        const node = new Node(value, null);
+    append(hashNode) {
+        const node = new Node(hashNode, null);
         if (this.head === undefined) {
             this.head = node;
         } else {
             let temp = this.head;
-            while (temp.next !== null) {
+            while (temp.next) {
                 temp = temp.next;
             } 
             temp.next = node;
+        }
+    };
+
+    update(hashNode, index) {
+        if (this.head === undefined) {
+            this.head = hashNode;
+        } else {
+            let count = 0;
+            let temp = this.head;
+            while (temp.next != null) {
+                if (count === index) {
+                    temp = hashNode;
+                }
+                temp = temp.next;
+                count++;
+            }
         }
     };
 
@@ -44,7 +60,7 @@ export class LinkedList {
             let count = 0;
             let temp = this.head;
             while (temp.next != null) {
-                if (temp.value.key === key) {
+                if (temp.hashNode.keys()[0] === key) {
                     return count;
                 }
                 temp = temp.next;
@@ -72,7 +88,7 @@ export class LinkedList {
             return 0;
         } else {
             let temp = this.head;
-            let count = 0;
+            let count = 1;
             while (temp.next != null) {
                 temp = temp.next;
                 count++;
@@ -95,7 +111,7 @@ export class LinkedList {
         let temp = this.head;
         const result = [];
         while (temp.next != null) {
-            result.push(temp.value);
+            result.push(temp.hashNode);
             temp = temp.next;
         }
         return result;
@@ -105,7 +121,7 @@ export class LinkedList {
         let temp = this.head;
         const result = [];
         while (temp.next != null) {
-            result.push([temp.key, temp.value]);
+            result.push([temp.key, temp.hashNode]);
             temp = temp.next;
         }
         return result;

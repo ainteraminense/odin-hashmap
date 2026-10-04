@@ -2,21 +2,23 @@ import { HashMap } from "./hashMap.js"
 
 const test = new HashMap() // or HashMap() if using a factory
 
-test.set('apple', 'red')
-test.set('banana', 'yellow')
-test.set('carrot', 'orange')
-test.set('dog', 'brown')
-test.set('elephant', 'gray')
-test.set('frog', 'green')
-test.set('grape', 'purple')
-test.set('hat', 'black')
-test.set('ice cream', 'white')
-test.set('jacket', 'blue')
-test.set('kite', 'pink')
-test.set('lion', 'golden')
+test.set('apple', 'red'); // 10
+test.set('banana', 'yellow'); // 5
+test.set('carrot', 'orange'); // 3
+test.set('dog', 'brown'); // 12 - head
+test.set('elephant', 'gray'); // 1
+test.set('frog', 'green'); // 4
+test.set('grape', 'purple'); // 11 - head
+test.set('hat', 'black'); // 11 - [1]
+test.set('ice cream', 'white'); // 13
+test.set('jacket', 'blue'); // 14
+test.set('kite', 'pink'); // 15
+test.set('lion', 'golden'); // 12 [1]
+console.log(test.length()); 
 
-test.set('dog', 'black');
-test.set('hat', 'white');
-test.set('lion', 'brown');
+// test.set('dog', 'black');
+// test.set('hat', 'white');
+// test.set('lion', 'brown');
+// console.log(test.length());
 
 

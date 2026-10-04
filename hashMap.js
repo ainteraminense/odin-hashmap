@@ -28,13 +28,13 @@ export class HashMap {
         // implement grow buckets if it exceeds load capacity
         if(this.buckets[index] === undefined) {
             this.buckets[index] = new LinkedList();
-            this.buckets[index].append({key, value});
+            this.buckets[index].append({[key]:value});
         } else {
             const linkedListIndex = this.buckets[index].findIndex(key);
-            if (linkedListIndex !== -1) {
-                this.buckets[index].append({key, value});
+            if (linkedListIndex === -1) {
+                this.buckets[index].append({[key]:value});
             } else {
-                this.buckets[index].value = {key, value};
+                this.buckets[index].update({[key]:value})
             }
         }
     };
