@@ -19,6 +19,11 @@ export class HashMap {
     return hashCode % this.capacity;
     };
 
+    isAboveThreshold() {
+        const threshold = this.capacity * this.loadFactor;
+        return this.length() > threshold ? true : false;
+    }
+
     set(key, value) {
         const index = this.hash(key);
         // check if index is out of bounds
@@ -37,8 +42,13 @@ export class HashMap {
                 this.buckets[index].update({[key]:value}, linkedListIndex)
             }
         }
+        if(this.isAboveThreshold()) {
+            this.capacity = this.capacity * 2;
+            this.buckets.length = this.capacity;
+        }
     };
     
+
     get(key) {
         const index = this.hash(key);
         // check if index is out of bounds

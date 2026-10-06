@@ -14,11 +14,16 @@ test.set('ice cream', 'white'); // 13
 test.set('jacket', 'blue'); // 14
 test.set('kite', 'pink'); // 15
 test.set('lion', 'golden'); // 12 [1]
-console.log(test.length()); 
+console.log(`Number of entries after append: ${test.length()}`); 
 
 test.set('dog', 'black');
 test.set('hat', 'white');
 test.set('lion', 'brown');
-console.log(test.length());
+console.log(`Number of entries after update: ${test.length()}`); 
+
+test.set('moon', 'silver');
+console.log(`Number of entries after trigger: ${test.length()}`); 
+console.log(`Capacity: ${test.capacity}`);
+
 
 
