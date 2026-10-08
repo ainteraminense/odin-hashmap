@@ -84,11 +84,11 @@ export class HashMap {
         if (index < 0 || index >= this.buckets.length) {
         throw new Error("Trying to access index out of bounds");
         }
-        if(this.buckets[index] === null) {
+        if(this.buckets[index] === undefined) {
             return false;
         } else {
             const linkedListIndex = this.buckets[index].findIndex(key);
-            if (linkedListIndex !== -1) {
+            if (linkedListIndex === -1) {
                 return false;
             } else {
                 return true;

@@ -29,7 +29,9 @@ test.set('elephant', 'white'); // 1 , after rehash 17 - head
 test.set('moon', 'full'); // 1 - [1] , after rehash 1 - head
 console.log(`Number of entries after trigger: ${test.length()}`); 
 
-console.log(`Test get: ${test.get('ice cream')}`);
-console.log(`Test get: ${test.get('dog')}`);
+console.log(`Test get ice cream: ${test.get('ice cream')}`);
+console.log(`Test get dog: ${test.get('dog')}`);
+console.log(`Test has dog: ${test.has('dog')}`);
+console.log(`Test has cat: ${test.has('cat')}`);
 
 
