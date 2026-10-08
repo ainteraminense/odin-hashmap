@@ -107,11 +107,9 @@ export class HashMap {
         } else {
             const linkedListIndex = this.buckets[index].findIndex(key);
             if (linkedListIndex !== -1) {
-                if (linkedListIndex > 0) {
                     this.buckets[index].remove(linkedListIndex);
                     return true;
-                }        
-            } else {
+                } else {
                 return false;
             }
         }

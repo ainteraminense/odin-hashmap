@@ -88,9 +88,9 @@ export class LinkedList {
                 this.head = this.head.next;
                 return;
             }
-            while(temp.next != null) {
+            while(temp && temp.next != null) {
                 if (count === indexToRemove - 1) {
-                    temp = temp.next.next;
+                    temp.next = temp.next.next;
                     count++;
                     continue;
                 } 

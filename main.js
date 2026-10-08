@@ -33,5 +33,8 @@ console.log(`Test get ice cream: ${test.get('ice cream')}`);
 console.log(`Test get dog: ${test.get('dog')}`);
 console.log(`Test has dog: ${test.has('dog')}`);
 console.log(`Test has cat: ${test.has('cat')}`);
+console.log(`Test remove hat: ${test.remove('hat')}`);
+console.log(`Test remove lion: ${test.remove('lion')}`);
+
 
 
