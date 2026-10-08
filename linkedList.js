@@ -110,8 +110,9 @@ export class LinkedList {
     keys() {
         let temp = this.head;
         const result = [];
+        result.push(Object.keys(temp.hashNode)[0]);
         while (temp.next != null) {
-            result.push(temp.key);
+            result.push(Object.keys(temp.next.hashNode)[0]);
             temp = temp.next;
         }
         return result;
@@ -120,8 +121,9 @@ export class LinkedList {
     values() {
         let temp = this.head;
         const result = [];
+        result.push(Object.values(temp.hashNode)[0]);
         while (temp.next != null) {
-            result.push(temp.hashNode);
+            result.push(Object.values(temp.next.hashNode)[0]);
             temp = temp.next;
         }
         return result;

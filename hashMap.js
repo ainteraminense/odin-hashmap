@@ -45,9 +45,23 @@ export class HashMap {
         if(this.isAboveThreshold()) {
             this.capacity = this.capacity * 2;
             this.buckets.length = this.capacity;
+            this.reset();
         }
     };
     
+    reset() {
+        
+        for (let i=0; i<this.capacity;i++) {
+            const bucket = this.buckets[i];
+            if (bucket !== undefined) {
+                const keys = bucket.keys();
+                const values = bucket.values();
+                for (let j = 0; j<keys.length;j++) {
+                    console.log(`Index: ${i}, key: ${keys[j]} and value ${values[j]}`);
+                }
+            }
+        }
+    }
 
     get(key) {
         const index = this.hash(key);

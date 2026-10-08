@@ -21,7 +21,7 @@ test.set('hat', 'white');
 test.set('lion', 'brown');
 console.log(`Number of entries after update: ${test.length()}`); 
 
-test.set('moon', 'silver');
+test.set('moon', 'silver'); // 1 - [1]
 console.log(`Number of entries after trigger: ${test.length()}`); 
 console.log(`Capacity: ${test.capacity}`);
 
