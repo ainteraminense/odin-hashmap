@@ -43,23 +43,20 @@ export class HashMap {
             }
         }
         if(this.isAboveThreshold()) {
-            this.capacity = this.capacity * 2;
-            this.buckets.length = this.capacity;
             this.reset();
         }
     };
     
     reset() {
-        
-        for (let i=0; i<this.capacity;i++) {
-            const bucket = this.buckets[i];
-            if (bucket !== undefined) {
-                const keys = bucket.keys();
-                const values = bucket.values();
-                for (let j = 0; j<keys.length;j++) {
-                    console.log(`Index: ${i}, key: ${keys[j]} and value ${values[j]}`);
-                }
-            }
+        // console.log(this.keys());
+        // console.log(this.values());
+        const keys = this.keys();
+        const values = this.values();
+        this.capacity = this.capacity * 2;
+        this.buckets = [];
+        this.buckets.length = this.capacity;
+        for (let i = 0; i < keys.length; i++) {
+            this.set(keys[i], values[i]);
         }
     }
 
@@ -133,7 +130,7 @@ export class HashMap {
     };
 
     keys() {
-        const result = []
+        let result = []
         this.buckets.forEach((bucket) => {
             result = result.concat(bucket.keys());
         });
@@ -141,7 +138,7 @@ export class HashMap {
     };
     
     values() {
-        const result = []
+        let result = []
         this.buckets.forEach((bucket) => {
             result = result.concat(bucket.values());
         });

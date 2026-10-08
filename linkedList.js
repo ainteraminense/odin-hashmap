@@ -83,11 +83,16 @@ export class LinkedList {
     remove(indexToRemove) {
             let temp = this.head;
             let count = 0;
-            while(temp.next != null && count) {
+            if (count === indexToRemove) {
+                this.head = this.head.next;
+                return;
+            }
+            while(temp.next != null) {
                 if (count === indexToRemove - 1) {
                     temp = temp.next.next;
+                    count++;
                     continue;
-                }
+                } 
                 temp = temp.next;
                 count++;
             }
