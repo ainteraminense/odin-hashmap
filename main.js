@@ -23,7 +23,11 @@ console.log(`Number of entries after update: ${test.length()}`);
 
 test.set('moon', 'silver'); // 1 - [1] , after rehash 1 - head
 console.log(`Number of entries after trigger: ${test.length()}`); 
-console.log(`Capacity: ${test.capacity}`);
+// console.log(`Capacity: ${test.capacity}`);
+test.set('ice cream', 'vanilla'); // 13 , after rehash 13 - head
+test.set('elephant', 'white'); // 1 , after rehash 17 - head
+test.set('moon', 'full'); // 1 - [1] , after rehash 1 - head
+console.log(`Number of entries after trigger: ${test.length()}`); 
 
 
 
