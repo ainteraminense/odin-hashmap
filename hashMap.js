@@ -70,10 +70,10 @@ export class HashMap {
             return undefined;
         } else {
             const linkedListIndex = this.buckets[index].findIndex(key);
-            if (linkedListIndex !== -1) {
+            if (linkedListIndex === -1) {
                 return undefined;
             } else {
-                return this.buckets[index].value;
+                return this.buckets[index].values()[linkedListIndex];
             }
         }
     };

@@ -64,15 +64,16 @@ export class LinkedList {
         if (this.head === undefined) {
             return -1;
         } else {
+            const keys = this.keys();
             let count = 0;
-            if (this.head.hashNode[key]) {
+            if (keys[count] === key) {
                 return count;
             }
             let temp = this.head;
             while (temp.next) {
                 temp = temp.next;
                 count++;
-                if (temp.hashNode[key]) {
+                if (keys[count] === key) {
                     return count;
                 }
             }
