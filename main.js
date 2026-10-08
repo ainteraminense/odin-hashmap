@@ -35,6 +35,14 @@ console.log(`Test has dog: ${test.has('dog')}`);
 console.log(`Test has cat: ${test.has('cat')}`);
 console.log(`Test remove hat: ${test.remove('hat')}`);
 console.log(`Test remove lion: ${test.remove('lion')}`);
+console.log(`Test length equal 11 ${test.length()}`);
+console.log(`Test keys ${test.keys()}`);
+console.log(`Test values ${test.values()}`);
+console.log(`Test entries ${test.entries()}`);
+console.log(`Test clear ${test.clear()}`);
+console.log(`Test length after clear ${test.length()}`);
+
+
 
 
 

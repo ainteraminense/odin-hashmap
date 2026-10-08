@@ -43,6 +43,7 @@ export class HashMap {
             }
         }
         if(this.isAboveThreshold()) {
+            this.capacity = this.capacity * 2;
             this.reset();
         }
     };
@@ -52,7 +53,6 @@ export class HashMap {
         // console.log(this.values());
         const keys = this.keys();
         const values = this.values();
-        this.capacity = this.capacity * 2;
         this.buckets = [];
         this.buckets.length = this.capacity;
         for (let i = 0; i < keys.length; i++) {
@@ -108,6 +108,10 @@ export class HashMap {
             const linkedListIndex = this.buckets[index].findIndex(key);
             if (linkedListIndex !== -1) {
                     this.buckets[index].remove(linkedListIndex);
+                    if (this.buckets[index].head === undefined) {
+                        this.buckets.splice(index, 1);
+                        this.reset();
+                    }
                     return true;
                 } else {
                 return false;
@@ -144,10 +148,12 @@ export class HashMap {
     };
 
     entries() {
-        const result = []
-        this.buckets.forEach((bucket) => {
-            result = result.concat(bucket.entries());
-        });
+        let result = [];
+        const keys = this.keys();
+        const values = this.values();
+        for (let i=0;i<keys.length;i++){
+            result = result.concat(`${keys[i]}:${values[i]}`);
+        }
         return result;
     };
 }

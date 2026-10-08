@@ -135,13 +135,17 @@ export class LinkedList {
         return result;
     };
 
-    entries() {
-        let temp = this.head;
-        const result = [];
-        while (temp.next != null) {
-            result.push([temp.key, temp.hashNode]);
-            temp = temp.next;
-        }
-        return result;
-    };
+    // entries() {
+    //     let temp = this.head;
+    //     const result = [];
+    //     const keys = this.keys();
+    //     const values = this.values();
+    //     while (temp.next != null) {
+    //         for (let i = 0; i<keys.length;i++) {
+    //         result.push[{[keys[i]]:values[i]}];
+    //         temp = temp.next;
+    //     }
+    // }
+    //     return result;
+    // };
 }
